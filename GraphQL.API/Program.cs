@@ -23,9 +23,13 @@ builder.Services.AddDbContext<AppDbContext>(opts =>
 builder.Services
     .AddGraphQLServer()
     .AddQueryType(d => d.Name("Query"))
-        .AddTypeExtension<ProductQuery>()
+    .AddTypeExtension<ProductQuery>()
     .AddMutationType(d => d.Name("Mutation"))
-        .AddTypeExtension<ProductMutation>();
+    .AddTypeExtension<ProductMutation>()
+    .AddProjections()
+    .AddFiltering()
+    .AddSorting();
+    
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ProductService>();
