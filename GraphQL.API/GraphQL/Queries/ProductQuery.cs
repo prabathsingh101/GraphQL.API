@@ -12,11 +12,11 @@ namespace GraphQL.API.GraphQL.Queries
         [UseFiltering]
         [UseSorting]
 
-        [GraphQLName("product")]
+        [GraphQLName("get")]
         public Task<IEnumerable<Product>> GetProducts([Service] ProductService service) =>
             service.GetAllAsync();
 
-        [GraphQLName("byid")]
+        [GraphQLName("getbyid")]
         public Task<Product?> GetProductById(Guid id, [Service] ProductService service) =>
             service.GetByIdAsync(id);
     }
